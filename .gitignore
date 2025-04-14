@@ -1,0 +1,6 @@
+.terraform/
+*.exe
+*.zip
+*.tar.gz
+*.lock.hcl
+terraform.tfstate*
