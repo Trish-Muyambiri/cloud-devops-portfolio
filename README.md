@@ -75,6 +75,26 @@ terraform apply
 
 ---
 
+## VPC Module Demo (Apr 14)
+
+This demo showcases a reusable Terraform module that sets up a secure and scalable VPC environment on AWS.
+
+### Module Features
+- VPC with configurable CIDR block
+- Public and Private subnets across availability zones
+- Toggle for NAT Gateway deployment
+- Resource tagging
+- Outputs for VPC ID, subnet IDs, and NAT status
+
+
+### Screenshots
+- `terraform plan` output (before apply)
+- AWS Console: VPC, Subnets, NAT Gateway
+- `terraform apply` summary (after apply)
+
+> 📁 Screenshots stored in `screenshots/vpc-module-demo-apr14/`
+
+---
 ## Author
 
 Patricia Muyambiri  
