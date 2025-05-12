@@ -7,11 +7,6 @@ resource "aws_s3_bucket" "file_upload_bucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "file_upload_acl" {
-  bucket = aws_s3_bucket.file_upload_bucket.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_versioning" "file_upload_bucket_versioning" {
   bucket = aws_s3_bucket.file_upload_bucket.id
   versioning_configuration {
@@ -64,7 +59,7 @@ resource "aws_s3_bucket_policy" "upload_bucket_policy" {
         Sid       = "AllowLambdaToAccessBucket"
         Effect    = "Allow"
         Principal = {
-          AWS = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/lambda_execution_role"
+          "AWS": "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/lambda_execution_role"
         }
         Action    = [
           "s3:GetObject",
@@ -77,7 +72,7 @@ resource "aws_s3_bucket_policy" "upload_bucket_policy" {
         Sid       = "AllowTextractToReadBucket"
         Effect    = "Allow"
         Principal = {
-          Service = "textract.amazonaws.com"
+          "Service": "textract.amazonaws.com"
         }
         Action    = [
           "s3:GetObject"
